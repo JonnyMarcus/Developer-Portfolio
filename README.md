@@ -1,11 +1,5 @@
 # Portfólio — Jonny Marcus
 
-**Proposta de portfólio focada em conseguir estágio de desenvolvimento.**
-
-> Menos seções, mais prova. Quem visita o site decide em poucos segundos se vale chamar para uma conversa. Tudo aqui existe para ajudar nessa decisão.
-
----
-
 ## Sumário
 
 - [A ideia em uma frase](#a-ideia-em-uma-frase)
