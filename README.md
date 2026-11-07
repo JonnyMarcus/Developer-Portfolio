@@ -1,481 +1,281 @@
-# 🚀 Jonny Marcus — Developer Portfolio
+# Portfólio — Jonny Marcus
 
-<p align="center">
-  <img src="public/images/portfolio-banner.png" alt="Banner do portfólio de Jonny Marcus" width="100%">
-</p>
+**Proposta de portfólio focada em conseguir estágio de desenvolvimento.**
 
-<h3 align="center">Portfólio profissional | Full Stack Developer</h3>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white" alt="Next.js">
-  <img src="https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white" alt="TypeScript">
-  <img src="https://img.shields.io/badge/Tailwind_CSS-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="Tailwind CSS">
-  <img src="https://img.shields.io/badge/GSAP-88CE02?style=for-the-badge&logo=greensock&logoColor=black" alt="GSAP">
-</p>
-
-<p align="center">
-  🔗 <b>Demo:</b> <a href="https://SEU-DOMINIO.com">SEU-DOMINIO.com</a> ·
-  💼 <a href="https://linkedin.com/in/SEU-PERFIL">LinkedIn</a> ·
-  🐙 <a href="https://github.com/JonnyMarcus">GitHub</a>
-</p>
+> Menos seções, mais prova. Quem visita o site decide em poucos segundos se vale chamar para uma conversa. Tudo aqui existe para ajudar nessa decisão.
 
 ---
 
 ## Sumário
 
-- [Sobre o projeto](#sobre-o-projeto)
-- [Status das funcionalidades](#status-das-funcionalidades)
+- [A ideia em uma frase](#a-ideia-em-uma-frase)
+- [Para quem o site é feito](#para-quem-o-site-é-feito)
+- [Princípios](#princípios)
+- [Mapa do site](#mapa-do-site)
+- [Home, seção por seção](#home-seção-por-seção)
+- [Estudos de caso](#estudos-de-caso)
+- [Projetos que eu colocaria em destaque](#projetos-que-eu-colocaria-em-destaque)
+- [Credibilidade e conversão](#credibilidade-e-conversão)
 - [Identidade visual](#identidade-visual)
-- [Funcionalidades](#funcionalidades)
-- [Animações com GSAP](#animações-com-gsap)
-- [Qualidade: desempenho, acessibilidade e SEO](#qualidade-desempenho-acessibilidade-e-seo)
-- [Arquitetura e conteúdo](#arquitetura-e-conteúdo)
+- [Interações e animações](#interações-e-animações)
 - [Stack](#stack)
-- [Estrutura do projeto](#estrutura-do-projeto)
-- [Como rodar](#como-rodar)
-- [Testes e CI](#testes-e-ci)
-- [Roadmap](#roadmap)
+- [Qualidade](#qualidade)
+- [O que você precisa escrever](#o-que-você-precisa-escrever)
+- [Plano de entrega](#plano-de-entrega)
+- [Decisões e o porquê](#decisões-e-o-porquê)
 
 ---
 
-## Sobre o projeto
+## A ideia em uma frase
 
-Portfólio pessoal interativo que funciona como um **currículo digital**: apresenta minha trajetória acadêmica, experiências, habilidades técnicas e projetos, para que recrutadores, desenvolvedores e empresas conheçam meu perfil de forma dinâmica e organizada.
+Um site pequeno, rápido e com personalidade, que mostra **poucos projetos bem explicados** em vez de muita coisa superficial, e que leva o visitante a uma ação: **te chamar para conversar**.
 
-A identidade visual é futurista, inspirada em interfaces tecnológicas: Dark UI, neon roxo, elementos Cyberpunk e animações suaves.
+## Para quem o site é feito
 
-### 🎯 Objetivos
-
-- Apresentar minha trajetória como estudante de Ciência da Computação.
-- Demonstrar minhas habilidades em desenvolvimento de software.
-- Exibir projetos pessoais, acadêmicos e profissionais com contexto técnico.
-- Centralizar minhas informações profissionais.
-- Facilitar o contato com recrutadores e empresas.
-- Servir como prova de conhecimento: o próprio site é um projeto real, com boas práticas de engenharia.
-
-> **Princípio do projeto:** o README só promete o que existe. Cada funcionalidade tem um status na tabela abaixo.
-
-## Status das funcionalidades
-
-| Funcionalidade | Status |
-|---|---|
-| Hero | ⬜ |
-| Sobre mim | ⬜ |
-| Tecnologias e ferramentas | ⬜ |
-| Projetos em destaque | ⬜ |
-| Páginas individuais de projetos | ⬜ |
-| Minha jornada (timeline) | ⬜ |
-| GitHub Activity | ⬜ |
-| Atualmente estudando | ⬜ |
-| Terminal interativo | ⬜ |
-| Contato | ⬜ |
-| Versão em inglês | ⬜ |
-
-Legenda: ✅ pronto · 🚧 em andamento · ⬜ planejado. *Atualize a tabela a cada entrega.*
-
----
-
-# 🎨 Identidade visual
-
-### Características
-
-- Interface Dark Mode com detalhes em neon roxo.
-- Efeitos de iluminação e cards com Glassmorphism.
-- Elementos visuais inspirados em código.
-- Animações suaves e microinterações.
-- Layout responsivo, pensado primeiro para celular.
-
-### Paleta de cores
-
-| Cor | Código | Utilização |
+| Visitante | O que procura | O que o site entrega |
 |---|---|---|
-| Preto | `#080810` | Fundo principal |
-| Cinza escuro | `#10101C` | Cards e painéis |
-| Roxo | `#8B35FF` | Cor principal |
-| Roxo claro | `#B56CFF` | Destaques |
-| Azul | `#4D8DFF` | Elementos complementares |
-| Branco | `#F5F5FA` | Textos principais |
-| Cinza | `#A5A5B8` | Textos secundários |
+| **Recrutador** | Saber quem você é, em que nível está e se serve para a vaga, em menos de 1 minuto | Apresentação objetiva, projetos com resultado, currículo e contato visíveis |
+| **Líder técnico** | Ver como você pensa e escreve código | Estudos de caso com decisões, desafios e link para o repositório |
+| **Colega de curso ou EJ** | Conhecer seu trabalho | Projetos, jornada e links |
 
-As cores ficam como **tokens no Tailwind** (`background`, `surface`, `primary`, `primary-light`, `accent`, `foreground`, `muted`), nunca como valores soltos nos componentes. Assim, mudar o tema é editar um arquivo.
-
----
-
-# 🧩 Funcionalidades
-
-## 1. Página inicial (Hero)
-
-- Nome, apresentação, especialização e interesses.
-- Indicador de **disponibilidade para oportunidades**, controlado por uma configuração (não fixo no código).
-- Personagem ilustrado.
-- Botões: ver projetos e baixar currículo.
-- Links para GitHub e LinkedIn.
-
-## 2. Sobre mim
-
-- Estudante de Ciência da Computação na UNIFEI.
-- Atuação na empresa júnior Byron Solutions.
-- Experiência anterior na Dev-U.
-- Interesses em desenvolvimento de software e objetivos profissionais.
-
-## 3. Tecnologias e ferramentas
-
-Cards com ícones, organizados por categoria. **Sem porcentagens artificiais de proficiência.**
-
-| Categoria | Tecnologias |
-|---|---|
-| **Frontend** | HTML5, CSS3, JavaScript, TypeScript, React, Next.js, Tailwind CSS |
-| **Backend** | Node.js, Python, C, C# |
-| **Ferramentas** | Git, GitHub, VS Code, Figma, Blender, Power BI, Make |
-
-Os dados vêm de um arquivo de conteúdo, então adicionar uma tecnologia não exige mexer nos componentes.
-
-## 4. Projetos em destaque
-
-Galeria de projetos. Cada card mostra: nome, capa, descrição curta, tecnologias, minha contribuição, link do GitHub e demonstração (quando houver). Filtro por tecnologia ou tipo (web, mobile, jogo, acadêmico).
-
-| Projeto | Descrição |
-|---|---|
-| Patrus Sync | Sistema de roteirização e organização de entregas |
-| Barber Scheduling | Gerenciamento e agendamento para barbearias |
-| O Último Riff | Jogo com pixel art e narrativa |
-| Estudos e experimentos | Projetos acadêmicos e experimentos de programação |
-
-## 5. Páginas individuais dos projetos
-
-Cada projeto tem uma página própria, escrita como um **estudo de caso**:
-
-1. Visão geral e problema identificado.
-2. Objetivos e funcionalidades.
-3. Minha contribuição (importante em projetos de grupo).
-4. Arquitetura e estrutura do projeto.
-5. Desafios técnicos e soluções.
-6. **Resultados** (o que funcionou, o que foi medido, o que ficou de fora).
-7. Aprendizados.
-8. Imagens, demonstrações e link do repositório.
-
-```text
-/projetos
-/projetos/patrus-sync
-/projetos/barber-scheduling
-/projetos/o-ultimo-riff
-```
-
-O conteúdo é escrito em MDX, e as rotas são geradas a partir dos arquivos.
-
-## 6. Minha jornada
-
-Timeline interativa com os marcos da minha evolução:
-
-- **2024:** ingresso na UNIFEI e início da graduação em Ciência da Computação.
-- **2025:** projetos de desenvolvimento de jogos e atividades na Dev-U.
-- **2026:** entrada na Byron Solutions, atuando em atividades administrativas, financeiras e organizacionais.
-
-## 7. GitHub Activity
-
-Integração com a API pública do GitHub (`github.com/JonnyMarcus`), com informações reais e nenhuma métrica inventada: foto, usuário, biografia, repositórios públicos, projetos recentes, linguagens e histórico de contribuições quando disponível.
-
-**Como é feito corretamente**
-
-- As chamadas passam por uma **rota do servidor** (`/api/github`), não pelo navegador. Isso protege o token e evita estourar o limite de requisições da API.
-- Resposta com **cache e revalidação** (ISR), em vez de buscar a cada visita.
-- Indicadores de carregamento (skeleton) e tratamento de erro com mensagem amigável.
-- Se a API falhar, o site continua mostrando o último resultado em cache.
-- Link para o perfil completo.
-
-## 8. Atualmente estudando
-
-Tópicos em andamento: TypeScript, React e Next.js, Node.js, estruturas de dados, algoritmos, arquitetura de software e Inteligência Artificial.
-
-Cada item fica em um arquivo de conteúdo, para ser adicionado ou removido facilmente.
-
-## 9. Terminal interativo
-
-Terminal visual inspirado em Linux, no qual o visitante conhece o desenvolvedor por comandos.
-
-| Comando | Funcionalidade |
-|---|---|
-| `help` | Lista os comandos disponíveis |
-| `about` | Informações pessoais |
-| `projects` | Lista os projetos |
-| `skills` | Apresenta as tecnologias |
-| `experience` | Mostra as experiências profissionais |
-| `contact` | Mostra as formas de contato |
-| `github` | Abre o perfil do GitHub |
-| `resume` | Baixa o currículo |
-| `clear` | Limpa o terminal |
-
-Detalhes que fazem diferença:
-
-- Histórico com as setas ↑ ↓ e autocompletar com `Tab`.
-- Mensagem amigável para comando desconhecido, sugerindo `help`.
-- Os comandos usam os **mesmos arquivos de conteúdo** do restante do site, sem duplicar texto.
-- Pequenos *easter eggs* para visitantes curiosos.
-- **Em celular**, botões com os comandos principais, já que digitar é ruim em telas pequenas.
-- Acessível: funciona só com teclado e é compatível com leitores de tela.
-
-## 10. Contato *(novo)*
-
-Hoje o visitante só encontra links. A seção de contato fecha o objetivo "facilitar o contato com recrutadores":
-
-- Formulário com nome, e-mail e mensagem, validado no cliente e no servidor.
-- Envio por rota do servidor (`/api/contact`) com serviço de e-mail.
-- Proteção contra spam (campo oculto *honeypot* e limite de envios por IP).
-- Mensagens claras de sucesso e erro.
-- E-mail, LinkedIn e GitHub em destaque, para quem prefere contato direto.
-
----
-
-# ✨ Animações com GSAP
-
-As animações reforçam a identidade futurista e guiam o olhar do visitante, mas **nunca atrapalham a leitura nem o desempenho**. Cada uma tem um motivo.
-
-## Catálogo de animações
-
-| Onde | Animação | Técnica |
-|---|---|---|
-| **Entrada do site** | Tela de carregamento curta com a marca em neon, que se dissolve revelando o Hero | `gsap.timeline()` |
-| **Hero: título** | Texto revelado por linhas ou palavras, com leve deslocamento e fade | `SplitText` + timeline com `stagger` |
-| **Hero: personagem** | Flutuação suave e leve **parallax** seguindo o mouse (no celular, o giroscópio fica de fora) | `gsap.quickTo` + `mousemove` |
-| **Hero: indicador de disponibilidade** | Pulso neon contínuo e discreto | `repeat: -1`, `yoyo` |
-| **Seções ao rolar** | Elementos entram com fade e subida suave quando aparecem na tela | `ScrollTrigger` |
-| **Tecnologias** | Cards entram em cascata; no hover, brilho roxo e leve elevação | `stagger` + `gsap.to` no hover |
-| **Projetos** | Cards em cascata, efeito de inclinação 3D no hover e imagem com zoom suave | `ScrollTrigger` + hover com `quickTo` |
-| **Minha jornada** | Timeline **fixada na tela** (`pin`) enquanto a linha neon se desenha e cada marco acende conforme a rolagem | `ScrollTrigger` com `scrub` e `pin` |
-| **GitHub Activity** | Barras de linguagens e contadores animados até os valores reais | `gsap.to` com `snap` |
-| **Atualmente estudando** | Itens aparecem um a um, com barra de destaque deslizando | timeline com `stagger` |
-| **Terminal** | Efeito de digitação nas respostas e cursor piscando | timeline simples ou `TextPlugin` |
-| **Botões e links** | Efeito magnético leve (o botão acompanha o cursor) e brilho que percorre a borda | `quickTo` |
-| **Troca de páginas** | Transição com cortina neon ao entrar em um projeto | timeline no `layout` |
-| **Fundo** | Partículas ou grade com brilho em baixa intensidade, que reage ao scroll | CSS + `ScrollTrigger` |
-
-> Contadores só animam **valores reais** (por exemplo, repositórios públicos vindos da API). Nada de números inventados.
+O visitante principal é o recrutador. Se algo não ajuda ele, sai ou vai para o final da fila.
 
 ## Princípios
 
-1. **Só `transform` e `opacity`.** Animar `top`, `width` ou `box-shadow` pesado causa travamentos em celulares intermediários.
-2. **Respeitar `prefers-reduced-motion`.** Com a preferência ativa, as animações viram simples fades ou ficam desligadas.
-3. **Menos no celular.** Efeitos de mouse (parallax, magnético, cursor) existem só em telas com ponteiro; em telas pequenas, versões mais leves.
-4. **Animação não esconde conteúdo.** Se o JavaScript falhar, o texto continua visível (o estado inicial "escondido" é aplicado pelo GSAP, não pelo CSS).
-5. **Duração curta e consistente.** Entradas entre 0,4 s e 0,8 s, com poucas curvas de easing padronizadas.
-6. **Limpeza obrigatória.** Toda animação é desfeita quando o componente sai da tela, para evitar vazamento de memória.
+1. **Prova antes de promessa.** Nada de "apaixonado por tecnologia". Projetos, código e decisões falam por você.
+2. **Honestidade.** Sem porcentagens de habilidade, sem métricas inventadas. Só dados reais, como os do GitHub.
+3. **Poucos projetos, bem contados.** Três ou quatro estudos de caso valem mais que doze cards.
+4. **Uma assinatura visual.** Em vez de um efeito em cada seção, um elemento memorável (veja [Identidade visual](#identidade-visual)).
+5. **Rápido e acessível.** Um portfólio de dev lento ou quebrado no celular é um mau cartão de visitas.
+6. **Fácil de manter.** Atualizar um projeto deve ser editar um arquivo, não mexer em componentes.
 
-## Como integrar com Next.js e React
-
-- Usar o pacote **`@gsap/react`** e o hook **`useGSAP`**, que cria e limpa as animações automaticamente junto com o ciclo de vida do componente.
-- Registrar os plugins (`ScrollTrigger`, `SplitText`, `TextPlugin`) **uma única vez**, em `src/lib/gsap.ts`.
-- Componentes animados são **Client Components** (`"use client"`), mantendo o restante do site no servidor.
-- Usar `gsap.matchMedia()` para separar regras de desktop, celular e `prefers-reduced-motion` em um só lugar.
-- Carregar o GSAP com **`dynamic import`** nas seções abaixo da dobra, para não pesar o primeiro carregamento.
-- Escopar os seletores com `scope` (a `ref` do componente), em vez de buscar classes na página inteira.
-
-```text
-src/lib/gsap.ts              # registra plugins e define easings padrão
-src/hooks/useReveal.ts       # animação de entrada reutilizável
-src/hooks/useMagnetic.ts     # efeito magnético para botões
-src/components/animations/   # <Reveal>, <SplitTitle>, <PageTransition>
-```
-
-**Opcional:** suavização de rolagem com **Lenis**, integrada ao `ScrollTrigger`, para uma sensação mais fluida. Deve ser desligada quando `prefers-reduced-motion` estiver ativo.
-
-# ✅ Qualidade: desempenho, acessibilidade e SEO
-
-Como o público inclui recrutadores técnicos, o site precisa **ser** o que diz saber fazer.
-
-### Desempenho
-
-- Meta: Lighthouse **90+** em desempenho, acessibilidade, boas práticas e SEO.
-- Imagens com `next/image` e fontes com `next/font`.
-- Carregamento sob demanda (`dynamic import`) de GSAP, do terminal e de seções pesadas.
-- Animações usando apenas `transform` e `opacity`, para manter 60 fps em celulares intermediários (veja [Animações com GSAP](#animações-com-gsap)).
-
-### Acessibilidade
-
-- Respeito a `prefers-reduced-motion`: animações desligadas ou reduzidas.
-- Navegação completa por teclado, com foco visível.
-- Contraste conferido nas combinações de cor do tema.
-- Texto alternativo em imagens, HTML semântico e rótulos nos campos.
-- O terminal e a timeline têm alternativa textual simples.
-
-### SEO e compartilhamento
-
-- Metadados por página (título, descrição) e imagem Open Graph gerada por projeto.
-- `sitemap.xml` e `robots.txt` gerados pelo Next.js.
-- Dados estruturados (JSON-LD `Person`).
-- Página 404 personalizada e `error boundary` para falhas inesperadas.
-
-### Privacidade
-
-- Analytics sem cookies (por exemplo Vercel Analytics ou Plausible) para saber quais projetos chamam mais atenção.
-- Nenhum dado pessoal de visitantes guardado além do necessário para responder o formulário.
-
-### Idiomas
-
-- Português (Brasil) como idioma principal.
-- Versão em **inglês** planejada, com currículo nos dois idiomas, para vagas internacionais e remotas.
-
----
-
-# 🗂️ Arquitetura e conteúdo
-
-O site é **orientado a conteúdo**: textos, projetos, habilidades e jornada ficam em arquivos próprios, separados dos componentes. Para publicar um novo projeto, basta criar um arquivo MDX.
+## Mapa do site
 
 ```mermaid
-flowchart LR
-    C[content/<br/>projetos MDX · dados TS] --> P[Páginas Next.js]
-    P --> UI[Componentes React<br/>Tailwind + GSAP]
-    GH[API do GitHub] --> R[/api/github<br/>cache ISR/] --> P
-    F[Formulário] --> M[/api/contact<br/>validação + anti-spam/] --> E[Serviço de e-mail]
-    C --> T[Terminal<br/>mesmos dados]
+flowchart TD
+    H[Home] --> P[Projetos]
+    H --> S[Sobre]
+    H --> C[Contato]
+    P --> E1[Estudo de caso 1]
+    P --> E2[Estudo de caso 2]
+    P --> E3[Estudo de caso 3]
+    H --> CV[Currículo PDF]
+    K[Paleta de comandos Ctrl+K] -.acesso rápido.-> H
+    K -.-> P
+    K -.-> C
 ```
 
-Exemplo de cabeçalho de um projeto:
+| Rota | Conteúdo |
+|---|---|
+| `/` | Resumo de tudo, pensado para ser suficiente sozinho |
+| `/projetos` | Lista com filtro por tipo (web, mobile, IA, jogo, acadêmico) |
+| `/projetos/[slug]` | Estudo de caso completo |
+| `/sobre` | História mais longa, para quem quer saber mais |
+| `/contato` | Formulário e contatos diretos |
+| `/curriculo` | Currículo em PDF (PT e EN) |
 
-```yaml
----
-slug: patrus-sync
-title: Patrus Sync
-summary: Sistema de roteirização e organização de entregas
-type: mobile
-stack: [React Native, TypeScript, SQLite]
-repo: https://github.com/JonnyMarcus/...
-demo: null
-featured: true
----
+## Home, seção por seção
+
+```text
+┌──────────────────────────────────────────────────────────┐
+│ <JM />          Projetos  Sobre  Contato    [Currículo]  │
+├──────────────────────────────────────────────────────────┤
+│  HERO                                                    │
+│  Jonny Marcus                                            │
+│  Desenvolvedor full stack em formação.                   │
+│  Procuro estágio em desenvolvimento (remoto).            │
+│  [Ver projetos]  [Falar comigo]                          │
+│                                  ┌───────────────────┐   │
+│                                  │ cena em pixel art │   │
+│                                  └───────────────────┘   │
+├──────────────────────────────────────────────────────────┤
+│  FATOS RÁPIDOS  Next.js · TS · Remoto · UTC-3 · PT/EN    │
+├──────────────────────────────────────────────────────────┤
+│  TRABALHOS EM DESTAQUE  (3 a 4 cards grandes)            │
+│  [vídeo] Nome · problema em 1 linha · stack · ver caso   │
+├──────────────────────────────────────────────────────────┤
+│  O QUE USO  (tecnologias ligadas aos projetos)           │
+├──────────────────────────────────────────────────────────┤
+│  EM CONSTRUÇÃO  (dados reais do GitHub)                  │
+├──────────────────────────────────────────────────────────┤
+│  SOBRE EM POUCAS LINHAS  + jornada + recomendações       │
+├──────────────────────────────────────────────────────────┤
+│  CONTATO  (frase direta + e-mail + formulário)           │
+└──────────────────────────────────────────────────────────┘
 ```
+
+| Seção | Objetivo | Detalhes |
+|---|---|---|
+| **Hero** | Responder em 5 segundos: quem é, o que faz, o que quer | Uma frase de posicionamento, a situação atual (procurando estágio remoto) e dois botões. Nada de rodapé de siglas |
+| **Fatos rápidos** | Dar ao recrutador o que ele procura primeiro | Uma linha com stack principal, disponibilidade, fuso, idiomas e botão do currículo |
+| **Trabalhos em destaque** | Mostrar prova | Cards grandes com vídeo ou GIF curto, problema em uma linha, tecnologias e link para o estudo de caso |
+| **O que uso** | Ser útil ao recrutador que filtra por palavra-chave | Tecnologias agrupadas, cada uma com os projetos em que foi usada (por exemplo, "React Native: Routix"). Sem barras de nível |
+| **Em construção** | Mostrar constância | Repositórios recentes e atividade vindos da API do GitHub, com cache. Se a API falhar, a seção some sem quebrar nada |
+| **Sobre** | Humanizar | Três ou quatro frases: UNIFEI, Byron Solutions (gestão, processos, finanças), Dev-U e pixel art. A experiência de EJ conta: mostra responsabilidade e trabalho em equipe. Inclui links para recomendações reais do LinkedIn |
+| **Contato** | Converter | Convite direto, e-mail clicável e formulário curto |
+
+## Estudos de caso
+
+Cada projeto em destaque tem uma página própria, escrita sempre na mesma ordem:
+
+1. **Resumo em uma frase**, status (em desenvolvimento, concluído, protótipo) e um **vídeo ou GIF de 20 a 30 segundos** do projeto funcionando, logo no topo.
+2. **Problema:** quem sofria com o quê.
+3. **Minha contribuição:** o que foi parte sua, em especial em projetos de grupo.
+4. **Decisões técnicas:** por que essa stack, o que foi descartado e por quê.
+5. **Desafio e solução:** o problema mais difícil e como foi resolvido.
+6. **Resultado:** o que funciona hoje, o que ficou de fora e o que viria depois.
+7. **Aprendizados.**
+8. **Links:** repositório (com README completo), demonstração ao vivo e imagens.
+
+O recrutador técnico lê principalmente os itens 3, 4 e 5. É onde você mostra raciocínio, e não só que usou uma ferramenta.
+
+## Projetos que eu colocaria em destaque
+
+Uma sugestão a partir do que você já tem, para você confirmar e ajustar:
+
+| Projeto | Por que entra | Tipo |
+|---|---|---|
+| **Routix** (app de entregas) | Produto completo, com mapa, GPS, roteirização e decisões de arquitetura para contar | Mobile |
+| **CareerFlow AI** | Mostra IA aplicada e sistema multiagente, um assunto que recrutadores procuram | IA |
+| **Site da Barbearia do Victor** | Projeto com cliente real, saindo de design no Figma para React/Next.js | Web |
+| **O Último Riff** | Mostra criatividade, pixel art e jogo, e conecta com a identidade visual do site | Jogo |
+
+**Entram em uma lista secundária ("Outros trabalhos")**, sem estudo de caso longo: FileManager, PyConverter, VisionAid, EcoItamambuca e os trabalhos acadêmicos.
+
+**DPR AI Office:** é um ótimo case, mas é da Byron. Antes de publicar, confirme o que pode ser mostrado, ou escreva uma versão que explique a arquitetura sem expor dados internos.
+
+## Credibilidade e conversão
+
+Melhorias que transformam um site bonito em um site que **gera conversas**.
+
+| # | Melhoria | Como aplicar |
+|---|---|---|
+| 1 | **Vídeo ou GIF de 20 a 30 s por projeto** | Gravação de tela curta, sem narração obrigatória, mostrando o fluxo principal. Aparece no card e no topo do estudo de caso. Recrutador raramente lê tudo, mas assiste |
+| 2 | **Faixa de fatos rápidos** | Logo abaixo do hero: stack principal, disponibilidade, fuso, idiomas e botão do currículo |
+| 3 | **Repositórios alinhados ao site** | Cada estudo de caso aponta para um repositório com README completo (problema, stack, como rodar, capturas). Os repositórios fixados no GitHub são os mesmos projetos em destaque do site |
+| 4 | **Mesma mensagem em todo lugar** | A frase de posicionamento e o título profissional iguais no site, LinkedIn, GitHub e currículo |
+| 5 | **Teste dos 5 segundos antes de lançar** | Mostrar o hero por 5 segundos a 2 ou 3 pessoas (professor, colega de EJ, alguém da área) e perguntar: "o que ele faz e o que procura?". Se errarem, o hero muda |
+| 6 | **Eventos de analytics** | Registrar cliques em "Currículo" e "Contato", downloads do PDF e projetos mais abertos. Revisar após algumas semanas e ajustar o que não converte |
+| 7 | **Recomendações reais** | Link para recomendações do LinkedIn de colegas de EJ ou professores, na seção "Sobre". Nunca depoimentos inventados |
+| 8 | **Domínio próprio** | Endereço curto e profissional (por exemplo `jonnymarcus.dev`), usado também no currículo e no LinkedIn |
+| 9 | **Conteúdo renderizado no servidor** | Todo texto importante sai em HTML, para sistemas de triagem, buscadores e a prévia do LinkedIn funcionarem sem JavaScript |
+
+**Como medir se funciona:** número de contatos recebidos, cliques no currículo e de onde vieram os visitantes. Poucos dados já bastam para decidir o que mudar.
+
+## Identidade visual
+
+Mantém a sua base (escuro com roxo), mas com mais contenção.
+
+| Elemento | Proposta |
+|---|---|
+| **Tema** | Escuro, com fundo `#080810` e superfícies `#10101C` |
+| **Cor principal** | Roxo `#8B35FF`, usado com parcimônia: botões, links, destaques |
+| **Cor de apoio** | Azul `#4D8DFF`, só em detalhes pontuais |
+| **Texto** | `#F5F5FA` para títulos e `#A5A5B8` para o resto (contraste conferido) |
+| **Tipografia** | Space Grotesk nos títulos, Inter no texto e JetBrains Mono em detalhes de código |
+| **Assinatura visual** | **Pixel art.** Uma cena no hero e pequenos ícones em pixel nos marcos da jornada. **Começa como imagem estática bem desenhada; a animação entra só depois do lançamento**, para não atrasar o site Vem do seu histórico na Dev-U e diferencia o site de portfólios genéricos em "cyberpunk neon" |
+| **Neon** | Só em dois ou três pontos (botão principal, indicador de status, foco). Neon em tudo cansa e prejudica a leitura |
+| **Vidro (glassmorphism)** | Opcional e discreto. Cards sólidos leem melhor |
+
+## Interações e animações
+
+A regra: **poucas, com propósito, e desligáveis.**
+
+| Momento | O que acontece | Por quê |
+|---|---|---|
+| Entrada do hero | Texto aparece em sequência e, numa fase posterior, a cena em pixel art ganha vida | Primeira impressão marcante |
+| Rolagem | Seções entram com fade e leve subida | Ritmo de leitura |
+| Cards de projeto | Elevação e brilho sutil no hover | Indica que é clicável |
+| Jornada | Linha do tempo que se desenha conforme a rolagem | Transforma texto em narrativa |
+| **Paleta de comandos (`Ctrl+K`)** | Busca rápida: "projetos", "contato", "currículo", "GitHub" | Substitui o terminal completo: mais útil, mais rápido de fazer e funciona bem com teclado |
+
+- **GSAP** com `ScrollTrigger` e `@gsap/react`, apenas nos momentos acima.
+- Só `transform` e `opacity`.
+- Com `prefers-reduced-motion`, as animações viram fades simples ou ficam desligadas.
+- Em celular, sem efeitos de mouse.
 
 ## Stack
 
 | Tecnologia | Uso |
 |---|---|
-| Next.js (App Router) | Framework, rotas e rotas de API |
-| TypeScript | Tipagem em todo o projeto |
-| Tailwind CSS | Estilização com tokens de tema |
-| GSAP + `@gsap/react` | Animações, timelines e integração com React |
-| ScrollTrigger, SplitText | Animações ligadas à rolagem e ao texto |
-| Lenis (opcional) | Rolagem suave |
-| MDX | Páginas de projetos |
-| Zod | Validação do formulário |
-| Resend ou Formspree | Envio de e-mails |
-| Vitest + Testing Library | Testes unitários e de componentes |
-| Playwright | Testes de ponta a ponta |
-| ESLint + Prettier | Padronização do código |
-| GitHub Actions | Integração contínua |
-| Vercel | Hospedagem |
+| Next.js (App Router) + TypeScript | Base do site |
+| Tailwind CSS | Estilo, com a paleta como tokens |
+| MDX | Estudos de caso escritos como arquivos de texto |
+| GSAP | Animações selecionadas |
+| Canvas ou sprites CSS | Cena em pixel art |
+| API do GitHub (rota de servidor + cache) | Seção "Em construção" |
+| Zod + Resend | Formulário de contato validado |
+| Vercel Analytics ou Plausible | Eventos: cliques em currículo e contato, projetos mais abertos (sem cookies) |
+| Domínio próprio | Endereço profissional, usado no currículo e no LinkedIn |
+| Vitest e Playwright | Testes dos pontos críticos |
+| GitHub Actions + Vercel | Integração contínua e hospedagem |
 
-## Estrutura do projeto
+## Qualidade
 
-```text
-portfolio/
-├── public/
-│   ├── images/
-│   └── curriculo/            # PDFs (PT e EN)
-├── content/
-│   ├── projects/             # um .mdx por projeto
-│   ├── skills.ts
-│   ├── journey.ts
-│   └── studying.ts
-├── src/
-│   ├── app/
-│   │   ├── layout.tsx
-│   │   ├── page.tsx
-│   │   ├── projetos/
-│   │   │   ├── page.tsx
-│   │   │   └── [slug]/page.tsx
-│   │   ├── api/
-│   │   │   ├── github/route.ts
-│   │   │   └── contact/route.ts
-│   │   ├── sitemap.ts
-│   │   ├── robots.ts
-│   │   ├── opengraph-image.tsx
-│   │   └── not-found.tsx
-│   ├── components/
-│   │   ├── hero/
-│   │   ├── about/
-│   │   ├── skills/
-│   │   ├── projects/
-│   │   ├── journey/
-│   │   ├── github/
-│   │   ├── studying/
-│   │   ├── terminal/
-│   │   ├── contact/
-│   │   ├── animations/       # Reveal, SplitTitle, PageTransition
-│   │   └── ui/
-│   ├── lib/
-│   │   ├── gsap.ts           # registro de plugins
-│   │   ├── github.ts
-│   │   ├── content.ts
-│   │   └── terminal/commands.ts
-│   └── hooks/                # useReveal, useMagnetic
-├── tests/
-│   ├── unit/
-│   └── e2e/
-├── .env.example
-├── tailwind.config.ts
-├── next.config.mjs
-└── README.md
-```
+- **Desempenho:** Lighthouse 90+ em todas as categorias; imagens com `next/image`, fontes com `next/font`, GSAP carregado sob demanda.
+- **Acessibilidade:** navegação por teclado, foco visível, contraste verificado, textos alternativos, HTML semântico.
+- **Renderização no servidor:** todo o conteúdo importante sai em HTML, para triagem automática, buscadores e a prévia do LinkedIn funcionarem sem JavaScript.
+- **SEO e compartilhamento:** metadados por página, imagem Open Graph por projeto, `sitemap`, `robots`, dados estruturados `Person`.
+- **Privacidade:** analytics sem cookies e sem dados pessoais; eventos só de cliques e navegação. Nada de visitante guardado além do necessário para responder o formulário.
+- **Idiomas:** português primeiro e inglês depois, com currículo nos dois, já que a busca é por vagas remotas.
+- **Falhas:** página 404 própria e seções que dependem de API (GitHub) falham em silêncio, sem quebrar a página.
 
-## Como rodar
+## O que você precisa escrever
 
-**Pré-requisitos:** Node.js 20+ e npm (ou pnpm).
+O código é a parte mais previsível. O que decide o resultado é o conteúdo. Para cada projeto em destaque, responda:
 
-```bash
-git clone https://github.com/JonnyMarcus/<repositorio>.git
-cd <repositorio>
-npm install
+- Qual problema ele resolve, e para quem?
+- O que **você** fez, especificamente?
+- Qual foi a decisão técnica mais difícil, e o que você descartou?
+- O que funciona hoje e o que ainda falta?
+- Existe link de repositório, demonstração ou capturas de tela?
+- Você tem (ou pode gravar) um vídeo ou GIF de 20 a 30 segundos mostrando o projeto funcionando?
+- O README do repositório está completo e bate com o estudo de caso?
 
-cp .env.example .env.local   # preencha as variáveis abaixo
-npm run dev
-```
+Itens gerais:
 
-Acesse `http://localhost:3000`.
+- **Frase de posicionamento** do hero (uma linha, sem clichê), igual à do LinkedIn, do GitHub e do currículo.
+- **Texto do "Sobre"** (3 a 4 frases).
+- **Fatos rápidos:** stack principal, disponibilidade, fuso e idiomas.
+- **Currículo atualizado**, em PDF.
+- **Recomendações:** peça 2 ou 3 no LinkedIn a colegas de EJ ou professores.
+- **Domínio:** escolha o nome do endereço.
 
-### Variáveis de ambiente
+## Plano de entrega
 
-| Variável | Para quê | Obrigatória |
+| Etapa | Entrega | Resultado |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | URL do site (SEO e sitemap) | Sim |
-| `GITHUB_USERNAME` | Usuário usado na integração | Sim |
-| `GITHUB_TOKEN` | Aumenta o limite da API do GitHub | Recomendada |
-| `RESEND_API_KEY` | Envio do formulário de contato | Para o contato |
-| `CONTACT_TO_EMAIL` | E-mail que recebe as mensagens | Para o contato |
+| 1 | Projeto Next.js, tokens de tema, layout, hero, fatos rápidos e contato com e-mail | Base no ar, com o essencial |
+| 2 | Home completa, **um** estudo de caso (o melhor, com vídeo), domínio próprio, frase de posicionamento alinhada com LinkedIn, GitHub e currículo, **teste dos 5 segundos** | **Publicar.** Já pode ir no currículo e nas candidaturas |
+| 3 | Demais estudos de caso com vídeo, README dos repositórios fixados, "Outros trabalhos", recomendações do LinkedIn | Portfólio completo e coerente |
+| 4 | Seção do GitHub, formulário com anti-spam, SEO, imagens Open Graph, **eventos de analytics** | Produto polido e mensurável |
+| 5 | Animações com GSAP, paleta `Ctrl+K` e, por último, a animação da cena em pixel art | Personalidade |
+| 6 | Versão em inglês, testes e CI. Opcional: um post sobre o que aprendeu construindo o Routix | Maturidade |
+| Contínuo | Revisar os dados de analytics e ajustar o hero e os cards que não convertem | Melhoria baseada em dados |
 
-Nunca versione o `.env.local`.
+**Importante:** publicar na etapa 2. Um site simples e no ar ajuda mais que um site perfeito que nunca fica pronto.
 
-### Scripts
+## Decisões e o porquê
 
-| Comando | O que faz |
+| Decisão | Motivo |
 |---|---|
-| `npm run dev` | Servidor de desenvolvimento |
-| `npm run build` | Build de produção |
-| `npm run start` | Roda o build |
-| `npm run lint` | Verifica o código |
-| `npm run typecheck` | Checa os tipos |
-| `npm run test` | Testes unitários |
-| `npm run e2e` | Testes de ponta a ponta |
-
-## Testes e CI
-
-- **Unitários:** comandos do terminal, validação do formulário e tratamento da resposta do GitHub.
-- **Ponta a ponta:** navegação principal, abertura de uma página de projeto e envio do formulário.
-- **GitHub Actions:** a cada push, roda lint, typecheck, testes e build. Um selo de status no topo do README mostra se está passando.
-- **Lighthouse CI** opcional, para não deixar o desempenho cair sem perceber.
-
-## Roadmap
-
-| Etapa | Foco | Entregas |
-|---|---|---|
-| 1 | **Base** | Projeto Next.js, tokens de tema, layout, Hero e Sobre |
-| 2 | **Conteúdo** | Tecnologias, jornada e "atualmente estudando", todos orientados a dados |
-| 3 | **Projetos** | Galeria, filtros e páginas de estudo de caso em MDX |
-| 4 | **Integrações** | GitHub Activity com rota de servidor e cache |
-| 5 | **Interatividade e animações** | Terminal interativo; intro e Hero animados; revelações com ScrollTrigger; timeline fixada na jornada; hover dos cards; transição entre páginas |
-| 6 | **Contato** | Formulário com validação, anti-spam e envio de e-mail |
-| 7 | **Qualidade** | SEO, Open Graph, acessibilidade, 404, testes e CI |
-| 8 | **Publicação** | Deploy na Vercel, domínio próprio e analytics |
-| 9 | **Evolução** | Versão em inglês, blog ou notas técnicas, novos estudos de caso |
+| Menos seções que um portfólio "completo" | Cada seção compete pela atenção do recrutador |
+| Estudos de caso em vez de só cards | É onde se vê raciocínio, que é o que diferencia candidatos juniores |
+| Pixel art como assinatura | É autêntico, vem do seu histórico e ninguém confunde com template |
+| Paleta `Ctrl+K` no lugar do terminal | Mesma ideia de "interface de dev", mas útil de verdade e melhor no celular |
+| Tecnologias ligadas a projetos | Prova de uso e atende a busca por palavras-chave |
+| Neon contido | Legibilidade e aparência profissional |
+| Publicar cedo | O conteúdo melhora iterando, e a vaga não espera |
+| Vídeo curto por projeto | Mostra o produto funcionando em segundos e convence mais que texto |
+| Fatos rápidos no topo | Responde primeiro ao que o recrutador procura |
+| Repositórios alinhados ao site | Site bonito com repositório vazio perde credibilidade |
+| Mesma mensagem em todos os canais | Consistência passa profissionalismo e facilita a busca por você |
+| Teste dos 5 segundos | Valida o hero com pessoas reais antes de lançar |
+| Analytics de eventos | Permite melhorar com dados em vez de achismo |
+| Recomendações reais | Prova social sem inventar depoimento |
+| Pixel art estática primeiro | A animação é a parte mais arriscada em prazo; não deve atrasar a publicação |
+| Blog só opcional | Um blog parado prejudica mais do que ajuda |
 
 ---
 
-<p align="center"><b>Jonny Marcus — Developer Portfolio</b></p>
+<p align="center"><b>Jonny Marcus — Portfólio</b></p>
