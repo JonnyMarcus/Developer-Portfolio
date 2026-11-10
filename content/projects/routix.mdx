@@ -1,0 +1,146 @@
+﻿@---
+slug: routix
+title: Routix
+summary: App de roteirização de entregas com navegação offline
+type: mobile
+stack: [React Native, Expo, TypeScript, SQLite, MapLibre, OSM]
+repo: https://github.com/JonnyMarcus/Routix
+demo: null
+featured: true
+order: 7
+---
+
+# Routix
+
+## Visão Geral
+
+O **Routix** é um aplicativo **mobile (React Native/Expo)** para **roteirização de entregas** com **navegação offline-first**. Motoristas recebem rotas otimizadas, navegam sem internet e sincronizam quando online.
+
+## Problema Identificado
+
+Empresas de logística/entregas enfrentam:
+- Rotas manuais (Google Maps link a link) → ineficiente
+- Motoristas sem internet em áreas rurais/subterrâneos
+- Falta de comprovação de entrega (foto, assinatura, GPS)
+- Replanejamento difícil quando cliente não atende
+
+## Objetivos
+
+1. **Otimização de rotas** (VRP - Vehicle Routing Problem)
+2. **Navegação offline** (mapas vetoriais pré-baixados)
+3. **Comprovação de entrega** (foto, assinatura, timestamp, GPS)
+4. **Sincronização** automática quando online
+5. **Dashboard web** para gestão/frota
+
+## Funcionalidades
+
+### Mobile (Motorista)
+| Feature | Descrição |
+|---------|-----------|
+| **Rotas do dia** | Lista ordenada, otimizada, com janelas de tempo |
+| **Navegação** | Turn-by-turn, voz, recálculo off-route |
+| **Offline-first** | Mapas (MBTiles/OSM) + rotas no SQLite local |
+| **Entrega** | Checklist, foto pacote, assinatura, GPS, observações |
+| **Sincronização** | Background sync, conflitos resolvidos (last-write-wins) |
+| **Modo escuro** | Automático/sistema |
+
+### Web (Gestão)
+| Feature | Descrição |
+|---------|-----------|
+| **Importar pedidos** | CSV, API, integração ERP |
+| **Otimizador** | Algoritmo (OR-Tools/heurística) + ajuste manual |
+| **Acompanhamento** | Tempo real (quando online), última posição conhecida |
+| **Relatórios** | SLA, tempo médio, falhas, fotos de entrega |
+| **Motoristas** | CRUD, veículos, zonas, desempenho |
+
+## Arquitetura
+
+\\\
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│   Mobile App    │◀───▶│   Sync Engine   │◀───▶│   Backend API   │
+│  (React Native) │     │  (Conflict Res) │     │  (Next.js/API)  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+       │                       │                       │
+       ▼                       ▼                       ▼
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  SQLite Local   │     │  Queue (Redis)  │     │  PostgreSQL     │
+│  (Rotas, Mapas, │     │  (Offline ops)  │     │  (Prisma)       │
+│   Entregas)     │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+                              │                       │
+                              ▼                       ▼
+                    ┌─────────────────┐     ┌─────────────────┐
+                    │  Map Tiles      │     │  Optimizer      │
+                    │  (MBTiles/OSM)  │     │  (OR-Tools/     │
+                    │                 │     │   Heurística)   │
+                    └─────────────────┘     └─────────────────┘
+\\\
+
+## Stack Técnica
+
+### Mobile
+- **React Native** + **Expo** (SDK 50+)
+- **TypeScript** (strict)
+- **Expo SQLite** (local DB)
+- **MapLibre GL Native** + **MBTiles** (mapas offline)
+- **React Native Maps** (fallback online)
+- **Expo Background Fetch** + **Task Manager** (sync)
+- **Expo Camera** + **Signature Capture**
+- **Zustand** (state) + **React Query** (server state)
+
+### Backend
+- **Next.js** (API Routes)
+- **Prisma** + **PostgreSQL** (Supabase/Neon)
+- **Redis** (BullMQ) - filas de sync/otimização
+- **OR-Tools** (VRP solver) ou heurística customizada
+- **MapTiler/OSM** - geração de MBTiles
+
+## Minha Contribuição
+
+- **Arquitetura offline-first** (SQLite + sync engine)
+- **Integração MapLibre** com tiles vetoriais MBTiles
+- **Algoritmo de roteirização** (Clarke-Wright + 2-opt heuristic)
+- **Sync robusto** (queue, retry, conflict resolution)
+- **Comprovação de entrega** (foto + assinatura + GPS + hash)
+- **Build EAS** (iOS/Android) + TestFlight/Play Console
+
+## Desafios Técnicos
+
+### 1. Mapas offline em React Native
+**Solução**: MapLibre GL Native + MBTiles (vetorial, leve, estilável) + fallback online.
+
+### 2. Roteirização (VRP) em tempo real
+**Solução**: Heurística Clarke-Wright + 2-opt (ms para 50 paradas) + OR-Tools para otimização noturna.
+
+### 3. Sincronização confiável offline-first
+**Solução**: Event sourcing local (SQLite) + outbox pattern + idempotency keys + last-write-wins + manual merge para conflitos.
+
+### 4. Background location + battery
+**Solução**: expo-location foreground service (Android) + significant changes (iOS) + geofence para sync trigger.
+
+### 5. Tamanho do app (mapas)
+**Solução**: Download sob demanda por região + compressão MBTiles + delta updates.
+
+## Resultados
+
+- **App em produção** com 20+ motoristas
+- **Rotas otimizadas** reduzem 15-20% km rodados
+- **100% offline** em áreas sem cobertura
+- **Entregas comprovadas** com foto/assinatura/GPS (auditoria)
+- **Sync** < 2s quando online (delta apenas)
+
+## Aprendizados
+
+- **Offline-first** exige mudança de mentalidade (local source of truth)
+- **MapLibre + MBTiles** é melhor que tiles raster para offline
+- **Heurísticas simples** (Clarke-Wright) resolvem 90% dos casos reais
+- **Background sync** precisa de battery optimization cuidadosa
+- **Expo EAS Build** facilita CI/CD mobile tremendamente
+
+## Próximos Passos
+
+- [ ] Multi-depósito (hub-and-spoke)
+- [ ] Previsão de tráfego (historical + real-time)
+- [ ] Integração com ERPs (Tiny, Bling, Omie)
+- [ ] App para cliente final (rastreio público)
+- [ ] Telemetria veicular (OBD2/Bluetooth) para eco-driving

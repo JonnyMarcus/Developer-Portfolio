@@ -1,0 +1,115 @@
+﻿@---
+slug: pyconverter
+title: PyConverter
+summary: App desktop para converter e gerenciar arquivos
+type: desktop
+stack: [Python, Desktop, Conversão, FFmpeg, Pillow, pandas]
+repo: https://github.com/JonnyMarcus/PyConverter
+demo: null
+featured: true
+order: 4
+---
+
+# PyConverter
+
+## Visão Geral
+
+O **PyConverter** é uma aplicação **desktop em Python** para conversão em lote de arquivos: imagens, vídeos, áudios, documentos e dados. Interface intuitiva com presets e fila de processamento.
+
+## Problema Identificado
+
+Conversão de arquivos costuma ser:
+- Fragmentada (ferramenta diferente por tipo)
+- Linha de comando complexa (FFmpeg, Pandoc, etc.)
+- Sem preview ou validação antes de converter
+- Difícil de processar em lote com configurações consistentes
+
+## Objetivos
+
+1. **Unificar** conversão de múltiplos formatos em um app
+2. **Presets** para casos comuns (web, mobile, print, archive)
+3. **Fila de processamento** com progresso e logs
+4. **Preview** de resultado antes de converter
+5. **Metadados** preservados (EXIF, ID3, etc.)
+
+## Formatos Suportados
+
+| Categoria | Entrada | Saída |
+|-----------|---------|-------|
+| **Imagens** | JPG, PNG, WEBP, TIFF, BMP, HEIC | JPG, PNG, WEBP, AVIF |
+| **Vídeo** | MP4, MOV, AVI, MKV, WEBM | MP4, WEBM, GIF |
+| **Áudio** | MP3, WAV, FLAC, OGG, M4A | MP3, WAV, OGG, OPUS |
+| **Documentos** | PDF, DOCX, MD, HTML, TXT | PDF, MD, HTML, DOCX |
+| **Dados** | CSV, JSON, XLSX, XML | CSV, JSON, XLSX, Parquet |
+
+## Arquitetura
+
+\\\
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Queue     │────▶│  Workers    │────▶│  Output     │
+│  Manager    │     │  (Plugins)  │     │  Handler    │
+└─────────────┘     └─────────────┘     └─────────────┘
+       │                   │                   │
+       ▼                   ▼                   ▼
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Presets    │     │  Engines    │     │  Metadata   │
+│  (YAML)     │     │  (FFmpeg,   │     │  Preserver  │
+│             │     │   Pillow,   │     │             │
+│             │     │   Pandoc,   │     │             │
+│             │     │   LibreOffice)│   │             │
+└─────────────┘     └─────────────┘     └─────────────┘
+\\\
+
+## Stack Técnica
+
+- **Python 3.11+**
+- **CustomTkinter** - UI
+- **FFmpeg-python** - Vídeo/áudio
+- **Pillow** - Imagens
+- **pandoc** - Documentos
+- **libreoffice** (headless) - Office docs
+- **pandas/openpyxl** - Dados tabulares
+- **watchdog** - Monitoramento de pasta (auto-conversão)
+
+## Minha Contribuição
+
+- **Plugin architecture** para engines de conversão
+- **Sistema de presets** versionáveis (YAML)
+- **Queue assíncrona** com workers paralelos
+- **Preservação de metadados** (EXIF, ID3, timestamps)
+- **Watcher mode** (converte ao salvar na pasta)
+
+## Desafios Técnicos
+
+### 1. Dependências externas pesadas (FFmpeg, LibreOffice)
+**Solução**: Detecção automática, fallback gracioso, instruções de install.
+
+### 2. Conversão paralela sem conflitos de arquivo
+**Solução**: Temp dirs isolados por worker, atomic moves, locking.
+
+### 3. Preservação de metadados cross-format
+**Solução**: Extração antes, re-injeção depois (exiftool, mutagen).
+
+### 4. UI responsiva com processos pesados
+**Solução**: multiprocessing + Queue + progress callbacks via 	kinter.after.
+
+## Resultados
+
+- **50+ formatos** suportados
+- **Conversão paralela** (N workers = CPU cores)
+- **Presets** para web (WEBP/AVIF), mobile (HEIC/HEVC), archive (PDF/A)
+- **Watcher** monitora pastas e converte automaticamente
+
+## Aprendizados
+
+- **Plugin pattern** desacopla engines e facilita adicionar formatos
+- **Multiprocessing** > threading para CPU-bound (FFmpeg, Pillow)
+- **Metadados** são frequentemente perdidos - preservação requer esforço
+- **Auto-conversão** (watcher) é killer feature para workflows
+
+## Próximos Passos
+
+- [ ] Perfis de conversão por projeto (save/load)
+- [ ] Integração com cloud storage (S3, GDrive)
+- [ ] API REST para uso headless/servidor
+- [ ] Plugin para OCR (imagem → texto searchable)

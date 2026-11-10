@@ -1,0 +1,98 @@
+﻿@---
+slug: careerflow-ai
+title: CareerFlow AI
+summary: Sistema multiagentes para busca e gestão de vagas
+type: web
+stack: [TypeScript, React, Next.js, Python, IA, Multiagentes]
+repo: https://github.com/JonnyMarcus/CareerFlow-AI
+demo: null
+featured: true
+order: 1
+---
+
+# CareerFlow AI
+
+## Visão Geral
+
+O **CareerFlow AI** é um sistema inteligente de busca e gestão de vagas de emprego que utiliza **arquitetura multiagentes** para automatizar todo o processo: desde a coleta de vagas em múltiplas fontes até o match inteligente com o perfil do candidato.
+
+## Problema Identificado
+
+Desenvolvedores perdem horas:
+- Acessando múltiplos sites de emprego (LinkedIn, Glassdoor, Indeed, etc.)
+- Filtrando manualmente vagas irrelevantes
+- Personalizando currículos para cada vaga
+- Acompanhando status de candidaturas
+
+## Objetivos
+
+1. **Centralizar** busca de vagas em múltiplas fontes
+2. **Automatizar** triagem e match com perfil do candidato
+3. **Gerar** currículos e cartas de apresentação personalizados
+4. **Rastrear** pipeline de candidaturas (Kanban)
+
+## Arquitetura Multiagentes
+
+\\\
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Collector  │────▶│  Analyzer   │────▶│  Matcher    │
+│  Agents     │     │  Agent      │     │  Agent      │
+└─────────────┘     └─────────────┘     └─────────────┘
+                           │                    │
+                           ▼                    ▼
+                    ┌─────────────┐     ┌─────────────┐
+                    │  Generator  │     │  Tracker    │
+                    │  Agent      │     │  Agent      │
+                    └─────────────┘     └─────────────┘
+\\\
+
+| Agente | Responsabilidade | Tecnologias |
+|--------|------------------|-------------|
+| **Collector** | Scraping de vagas (LinkedIn, Glassdoor, Gupy, etc.) | Python, Playwright, BeautifulSoup |
+| **Analyzer** | Extração de skills, requisitos, salário, localização | spaCy, LLM (Ollama/GPT) |
+| **Matcher** | Score de compatibilidade candidato × vaga | Embeddings, similaridade semântica |
+| **Generator** | Criação de currículo/cover letter personalizados | Jinja2, LLM |
+| **Tracker** | Kanban de candidaturas, lembretes, follow-ups | Next.js, Prisma, PostgreSQL |
+
+## Minha Contribuição
+
+- **Arquitetura completa** do sistema multiagentes
+- **Orquestração** com n8n e Make para automações
+- **Backend** em Python (FastAPI) + Next.js frontend
+- **Integração LLM** local (Ollama) e cloud (Claude/GPT)
+- **Deploy** com Docker + Kubernetes
+
+## Desafios Técnicos
+
+### 1. Anti-scraping e Rate Limiting
+**Solução**: Rotação de proxies, headers realistas, delays aleatórios, uso de sessões persistentes.
+
+### 2. Extração estruturada de HTMLs variados
+**Solução**: Seletores CSS flexíveis + fallback com LLM para parsing semântico.
+
+### 3. Match semântico escalável
+**Solução**: Embeddings com \sentence-transformers\ + índice FAISS para busca vetorial rápida.
+
+### 4. Orquestração de agentes assíncronos
+**Solução**: n8n para workflows visuais + filas Redis para processamento em background.
+
+## Resultados
+
+- **300+ vagas/dia** coletadas automaticamente
+- **85% precisão** no match semântico (validação manual)
+- **Redução de 90%** no tempo de aplicação por vaga
+- Pipeline Kanban funcional com notificações
+
+## Aprendizados
+
+- Arquitetura multiagentes requer **observabilidade** (logs, métricas, tracing)
+- **LLMs locais** (Ollama) viabilizam custo zero para embedding/geração
+- **n8n** acelera prototipagem de workflows complexos
+- **Embeddings + FAISS** superam busca textual para match semântico
+
+## Próximos Passos
+
+- [ ] Dashboard de analytics (taxa de resposta, salários médios)
+- [ ] Integração com ATS (Greenhouse, Lever)
+- [ ] App mobile (React Native)
+- [ ] Modelo de fine-tuning para geração de cover letters

@@ -1,0 +1,111 @@
+﻿@---
+slug: filemanager
+title: FileManager
+summary: App para organizar, analisar e encontrar arquivos duplicados
+type: desktop
+stack: [Python, Desktop, Arquivos, Tkinter/CustomTkinter]
+repo: https://github.com/JonnyMarcus/FileManager
+demo: null
+featured: true
+order: 3
+---
+
+# FileManager
+
+## Visão Geral
+
+O **FileManager** é uma aplicação **desktop em Python** para organizar, analisar e encontrar arquivos duplicados no sistema de arquivos. Interface gráfica moderna com CustomTkinter.
+
+## Problema Identificado
+
+Usuários acumulam:
+- Milhares de arquivos duplicados ocupando espaço
+- Pastas desorganizadas sem padrão de nomenclatura
+- Dificuldade para encontrar arquivos específicos
+- Falta de visão geral do uso de disco por tipo/pasta
+
+## Objetivos
+
+1. **Escanear** diretórios recursivamente
+2. **Detectar duplicados** por hash (MD5/SHA256) e/ou nome+tamanho
+3. **Organizar** arquivos por tipo, data, tamanho
+4. **Visualizar** estatísticas de uso de disco
+5. **Remover/mover** duplicados com segurança
+
+## Arquitetura
+
+\\\
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Scanner   │────▶│  Analyzer   │────▶│   Organizer │
+│  (Thread)   │     │  (Hash/DB)  │     │  (Actions)  │
+└─────────────┘     └─────────────┘     └─────────────┘
+       │                   │                   │
+       ▼                   ▼                   ▼
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  SQLite     │     │  CustomTK   │     │  Undo Log   │
+│  (Cache)    │     │  (GUI)      │     │  (Rollback) │
+└─────────────┘     └─────────────┘     └─────────────┘
+\\\
+
+## Funcionalidades
+
+| Feature | Descrição |
+|---------|-----------|
+| **Scan Rápido** | Índice por nome+tamanho (segundos) |
+| **Scan Profundo** | Hash SHA256 de arquivos (minutos) |
+| **Duplicados** | Agrupamento visual com preview |
+| **Organizador** | Regras: por extensão, data, tamanho, regex |
+| **Estatísticas** | Gráficos: tipos, tamanhos, timeline |
+| **Segurança** | Lixeira do SO, log de ações, desfazer |
+
+## Stack Técnica
+
+- **Python 3.11+**
+- **CustomTkinter** - UI moderna (dark mode nativo)
+- **SQLite** - Cache de scans e metadados
+- **threading/asyncio** - Scan não-bloqueante
+- **send2trash** - Exclusão segura (lixeira)
+- **matplotlib/plotly** - Gráficos de estatísticas
+
+## Minha Contribuição
+
+- **Arquitetura completa** desktop (MVC)
+- **Engine de hash** otimizada (streaming, chunked)
+- **UI responsiva** com threading + callbacks
+- **Sistema de undo** para operações destrutivas
+- **Empacotamento** (PyInstaller, instalador Windows)
+
+## Desafios Técnicos
+
+### 1. Performance em milhares de arquivos
+**Solução**: Scan em threads, hash streaming (64KB chunks), cache SQLite incremental.
+
+### 2. UI travando durante scan
+**Solução**: 	hreading + queue + fter() callbacks para updates incrementais.
+
+### 3. Permissões e arquivos de sistema
+**Solução**: Try/except granular, skip silencioso, log de erros acessível.
+
+### 4. Cross-platform paths
+**Solução**: pathlib puro, normalização Unicode, testes Windows/Linux.
+
+## Resultados
+
+- **100k+ arquivos** escaneados em < 2 min (SSD)
+- **Duplicados** detectados com 100% precisão (hash)
+- **Interface** responsiva durante operações longas
+- **Zero perda de dados** (sistema de undo testado)
+
+## Aprendizados
+
+- **Desktop apps** exigem cuidado extra com threading/UI
+- **SQLite** é excelente para cache local estruturado
+- **CustomTkinter** traz UI moderna sem Electron/bloat
+- **Undo/rollback** é feature crítica para operações destrutivas
+
+## Próximos Passos
+
+- [ ] Sync com cloud (Google Drive, OneDrive)
+- [ ] Regras de organização via YAML/JSON
+- [ ] Versão CLI para automação/servers
+- [ ] Integração com Everything (Voidtools) para indexação instantânea

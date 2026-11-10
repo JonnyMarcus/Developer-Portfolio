@@ -1,0 +1,114 @@
+﻿@---
+slug: certificado-generator
+title: Gerador de Certificados
+summary: Automação que gera certificados em lote a partir de uma lista de nomes
+type: automation
+stack: [Python, Automação, Pillow, reportlab, pandas]
+repo: https://github.com/JonnyMarcus/Gerador-Automatico-de-Certificados
+demo: null
+featured: true
+order: 5
+---
+
+# Gerador de Certificados
+
+## Visão Geral
+
+O **Gerador de Certificados** é uma automação em **Python** que gera certificados em PDF/imagem em lote a partir de uma planilha (CSV/Excel) com nomes dos participantes e um template visual.
+
+## Problema Identificado
+
+Organizadores de eventos/cursos gastam horas:
+- Preenchendo certificados manualmente (um a um)
+- Ajustando posicionamento de nomes longos/curtos
+- Gerando PDFs individuais para envio
+- Conferindo se todos foram gerados corretamente
+
+## Objetivos
+
+1. **Ler** lista de participantes (CSV, Excel, Google Sheets)
+2. **Template** visual editável (imagem de fundo + campos)
+3. **Ajuste automático** de fonte/tamanho por comprimento do nome
+4. **Gerar** PDFs individuais + ZIP para download
+5. **Log** de gerados/erros para auditoria
+
+## Funcionalidades
+
+| Feature | Descrição |
+|---------|-----------|
+| **Múltiplos templates** | Diferentes layouts por tipo de evento |
+| **Auto-fit texto** | Redimensiona fonte para caber no campo |
+| **Campos dinâmicos** | Nome, CPF, carga horária, data, instrutor, etc. |
+| **Saída** | PDF (vetorial) ou PNG/JPG (raster) |
+| **Lote** | Processa milhares em minutos |
+| **Validação** | Duplicados, campos obrigatórios, encoding |
+
+## Stack Técnica
+
+- **Python 3.11+**
+- **Pillow** - Manipulação de imagem (raster)
+- **reportlab** - Geração PDF vetorial
+- **pandas** - Leitura CSV/Excel
+- **openpyxl** - Suporte .xlsx
+- **CustomTkinter** - UI opcional (desktop)
+- **Streamlit** - UI web opcional
+
+## Arquitetura
+
+\\\
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│   Loader    │────▶│  Template   │────▶│  Generator  │
+│  (CSV/XLSX) │     │  Engine     │     │  (Batch)    │
+└─────────────┘     └─────────────┘     └─────────────┘
+       │                   │                   │
+       ▼                   ▼                   ▼
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Validators │     │  Font/Layout│     │  Output     │
+│  (Names,    │     │  Calculator │     │  (PDF/PNG,  │
+│   Dupes)    │     │             │     │   ZIP, Log) │
+└─────────────┘     └─────────────┘     └─────────────┘
+\\\
+
+## Minha Contribuição
+
+- **Engine de layout** com auto-fit de fonte (binário search)
+- **Suporte a templates** multi-camada (fundo + overlay + texto)
+- **Validação robusta** de dados de entrada
+- **CLI + UI (Streamlit/CustomTkinter)** para diferentes usuários
+- **Processamento paralelo** (multiprocessing) para grandes volumes
+
+## Desafios Técnicos
+
+### 1. Nome muito longo/curto no campo fixo
+**Solução**: Binary search no tamanho da fonte + word-wrap inteligente + fallback de quebra de linha.
+
+### 2. Acentuação e encoding (CSV latim-1 vs UTF-8)
+**Solução**: Detecção automática (chardet) + normalização Unicode (NFC).
+
+### 3. Performance em 10k+ certificados
+**Solução**: multiprocessing.Pool + template pré-renderizado + I/O assíncrono.
+
+### 4. Template vetorial vs raster
+**Solução**: Dois engines - eportlab (PDF vetorial, texto nítido) e Pillow (imagem, efeitos visuais).
+
+## Resultados
+
+- **10.000 certificados** em < 3 min (PDF vetorial)
+- **Zero erros** de posicionamento (auto-fit testado)
+- **Duas interfaces**: CLI (automação) + Web (não-técnicos)
+- **Templates versionados** (JSON) para reuso
+
+## Aprendizados
+
+- **Auto-fit de texto** é problema geométrico não-trivial
+- **Encoding detection** salva horas de debugging
+- **PDF vetorial** >>> raster para texto (zoom, impressão, acessibilidade)
+- **CLI + Web** atende perfis de usuário distintos
+
+## Próximos Passos
+
+- [ ] Integração direta Google Sheets API
+- [ ] Assinatura digital (certificado ICP-Brasil)
+- [ ] QR Code de verificação no certificado
+- [ ] Envio automático por e-mail (SMTP/API)
+- [ ] Dashboard de eventos (múltiplos templates, relatórios)

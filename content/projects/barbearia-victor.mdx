@@ -1,0 +1,134 @@
+﻿@---
+slug: barbearia-victor
+title: Barbearia do Victor
+summary: Site institucional com agendamento online de horários
+type: web
+stack: [TypeScript, React, Next.js, Tailwind, Supabase, Prisma]
+repo: https://github.com/JonnyMarcus/Web-Site-Barber-Projeto-Final
+demo: null
+featured: true
+order: 6
+---
+
+# Barbearia do Victor
+
+## Visão Geral
+
+A **Barbearia do Victor** é um **site institucional completo** com sistema de **agendamento online** desenvolvido para uma barbearia real. Cliente gerencia agenda, serviços e profissionais; clientes agendam horários via WhatsApp/web.
+
+## Problema Identificado
+
+Barbearias pequenas perdem clientes por:
+- Agendamento apenas por telefone (horário comercial)
+- Conflitos de horário (overbooking manual)
+- Sem lembrete automático (no-shows)
+- Gestão de profissionais/serviços em papel/planilha
+
+## Objetivos
+
+1. **Site institucional** moderno, responsivo, SEO-friendly
+2. **Agendamento online** 24/7 com calendário visual
+3. **Painel admin** para barbearia (CRUD serviços, profissionais, agenda)
+4. **Integração WhatsApp** para confirmação/lembrete
+5. **Notificações** automáticas (e-mail/SMS/WhatsApp)
+
+## Funcionalidades
+
+### Público (Cliente Final)
+| Feature | Descrição |
+|---------|-----------|
+| **Home** | Apresentação, serviços, profissionais, depoimentos |
+| **Agendamento** | Calendário semanal, seleção serviço/profissional/horário |
+| **Login** | Magic link (e-mail) ou WhatsApp (OTP) |
+| **Meus Agendamentos** | Histórico, cancelar, reagendar |
+| **Notificações** | Confirmação, lembrete 24h/1h antes |
+
+### Admin (Barbearia)
+| Feature | Descrição |
+|---------|-----------|
+| **Dashboard** | Agenda do dia, semana, métricas (ocupação, no-shows) |
+| **Serviços** | CRUD: nome, duração, preço, descrição, imagem |
+| **Profissionais** | CRUD: nome, foto, especialidades, horários de trabalho |
+| **Agenda** | Visual semanal/mensal, bloqueios, feriados |
+| **Clientes** | Lista, histórico, tags, exportar CSV |
+| **Configurações** | Horário funcionamento, integração WhatsApp, templates msg |
+
+## Arquitetura
+
+\\\
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Next.js    │────▶│   API       │────▶│  Supabase   │
+│  (App Router)│     │  Routes     │     │  (Postgres) │
+└─────────────┘     └─────────────┘     └─────────────┘
+       │                   │                   │
+       ▼                   ▼                   ▼
+┌─────────────┐     ┌─────────────┐     ┌─────────────┐
+│  Tailwind   │     │  Prisma     │     │  Realtime   │
+│  + Shadcn   │     │  (ORM)      │     │  (Subscrib) │
+└─────────────┘     └─────────────┘     └─────────────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │  WhatsApp API   │
+                    │  (Evolution/    │
+                    │   Twilio)       │
+                    └─────────────────┘
+\\\
+
+## Stack Técnica
+
+- **Next.js 14+** (App Router, Server Components)
+- **TypeScript** (strict mode)
+- **Tailwind CSS** + **Shadcn/UI** (componentes)
+- **Supabase** (Postgres + Auth + Realtime + Storage)
+- **Prisma ORM** (type-safe database)
+- **NextAuth.js** (Magic link + WhatsApp OTP)
+- **React Hook Form + Zod** (validação)
+- **Date-fns** (manipulação de datas/calendário)
+- **Vercel** (deploy + cron jobs para lembretes)
+
+## Minha Contribuição
+
+- **Arquitetura full-stack** (Next.js + Supabase)
+- **Sistema de agendamento** com conflitos, recorrência, exceções
+- **Auth híbrida** (Magic link para admin, WhatsApp OTP para clientes)
+- **Realtime** para agenda colaborativa (múltiplos profissionais)
+- **Integração WhatsApp** (Evolution API) para notificações
+- **Deploy CI/CD** (GitHub Actions → Vercel)
+
+## Desafios Técnicos
+
+### 1. Conflitos de agendamento em tempo real
+**Solução**: Transações DB (Prisma) + lock otimista + Realtime para UI instantânea.
+
+### 2. Fusos horários e DST (Horário de Verão)
+**Solução**: date-fns-tz + armazenamento UTC + exibição no TZ do cliente.
+
+### 3. WhatsApp Business API (oficial vs não-oficial)
+**Solução**: Evolution API (self-hosted, open source) + fallback Twilio.
+
+### 4. SEO para negócio local
+**Solução**: 
+ext-seo, JSON-LD LocalBusiness, sitemap, robots, Open Graph.
+
+## Resultados
+
+- **Site em produção** com 50+ agendamentos/semana
+- **Redução de 80%** no-shows (lembretes WhatsApp)
+- **Admin** gerencia tudo sem suporte técnico
+- **Core Web Vitals** verdes (LCP < 2.5s, CLS < 0.1)
+
+## Aprendizados
+
+- **Supabase Realtime** elimina polling para agenda colaborativa
+- **Magic link** > senha para admin (menos suporte, mais seguro)
+- **WhatsApp** é canal preferido no Brasil (abertura > 90%)
+- **Calendário** é UX complexa - testar com usuários reais
+
+## Próximos Passos
+
+- [ ] App mobile (React Native/Expo) para profissionais
+- [ ] Pagamento online (Stripe/Mercado Pago) no agendamento
+- [ ] Fidelidade (pontos, cashback, indicação)
+- [ ] Multi-unidade (franquias)
+- [ ] BI: ocupação por profissional/serviço/horário

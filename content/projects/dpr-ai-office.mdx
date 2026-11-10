@@ -1,0 +1,108 @@
+﻿@---
+slug: dpr-ai-office
+title: DPR AI Office
+summary: Escritório de agentes de IA, um para cada função da diretoria da byron
+type: web
+stack: [TypeScript, Next.js, Python, IA, Agentes, n8n]
+repo: https://github.com/JonnyMarcus/DPR-AI-Office
+demo: null
+featured: true
+order: 2
+---
+
+# DPR AI Office
+
+## Visão Geral
+
+O **DPR AI Office** é um **escritório virtual de agentes de IA** desenvolvido para a **byron solutions** (empresa júnior da UNIFEI). Cada agente representa uma função da diretoria: Presidência, Financeiro, Projetos, Marketing, RH, Tecnologia e Jurídico.
+
+## Problema Identificado
+
+Empresas juniores enfrentam:
+- Sobrecarga operacional em poucos membros
+- Falta de especialização em áreas administrativas
+- Dificuldade de escalar processos sem contratar mais pessoas
+- Conhecimento concentrado em pessoas (bus factor alto)
+
+## Objetivos
+
+1. **Automatizar** tarefas repetitivas de cada diretoria
+2. **Especializar** agentes por domínio (financeiro, jurídico, RH, etc.)
+3. **Orquestrar** agentes para trabalharem em conjunto
+4. **Democratizar** acesso a expertise administrativa
+
+## Arquitetura
+
+\\\
+┌─────────────────────────────────────────────────────────────┐
+│                    ORQUESTRADOR (n8n)                       │
+└─────────────────────────────────────────────────────────────┘
+                              │
+        ┌─────────┬─────────┬─────────┬─────────┬─────────┐
+        ▼         ▼         ▼         ▼         ▼         ▼
+   ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐ ┌────────┐
+   │  CEO   │ │Financial│ │Projects│ │Marketing│ │   HR    │ │  Tech  │
+   │ Agent  │ │ Agent   │ │ Agent   │ │ Agent   │ │ Agent   │ │ Agent  │
+   └────────┘ └────────┘ └────────┘ └────────┘ └────────┘ └────────┘
+        │         │         │         │         │         │
+        └─────────┴─────────┴─────────┴─────────┴─────────┘
+                              │
+                              ▼
+                    ┌─────────────────┐
+                    │  Knowledge Base │
+                    │  (Notion + RAG) │
+                    └─────────────────┘
+\\\
+
+| Agente | Função | Ferramentas |
+|--------|--------|-------------|
+| **CEO** | Planejamento estratégico, OKRs, decisões | Notion, Google Sheets, LLM |
+| **Financeiro** | Fluxo de caixa, relatórios, cobranças | ERP, Planilhas, Banco |
+| **Projetos** | Gestão de escopo, cronograma, riscos | Jira, Notion, GitHub |
+| **Marketing** | Conteúdo, redes sociais, métricas | Canva, Meta Ads, GA4 |
+| **RH** | Recrutamento, onboarding, clima | Gupy, Slack, Forms |
+| **Tecnologia** | Arquitetura, code review, deploy | GitHub, Vercel, Docker |
+| **Jurídico** | Contratos, compliance, LGPD | Templates, Assinatura digital |
+
+## Minha Contribuição
+
+- **Design da arquitetura** multiagente
+- **Implementação dos 7 agentes** com prompts especializados
+- **Integração n8n** para orquestração de workflows
+- **RAG com Notion** como knowledge base compartilhada
+- **Deploy em produção** na infraestrutura da byron
+
+## Desafios Técnicos
+
+### 1. Contexto compartilhado entre agentes
+**Solução**: Knowledge base centralizada (Notion + embeddings) + memory persistente por agente.
+
+### 2. Orquestração sem conflitos
+**Solução**: n8n workflows com filas, idempotência e human-in-the-loop para decisões críticas.
+
+### 3. Prompt engineering por domínio
+**Solução**: Prompts versionados, few-shot examples, guardrails de segurança.
+
+### 4. Custo de LLM em escala
+**Solução**: Ollama local para tarefas simples, Claude/GPT apenas para decisões complexas.
+
+## Resultados
+
+- **7 agentes** operacionais em produção
+- **Redução de 60%** no tempo administrativo da diretoria
+- **Automação** de relatórios semanais, cobranças, onboarding
+- Knowledge base com **200+ documentos** indexados
+
+## Aprendizados
+
+- Agentes especializados **superam** um agente geral
+- **Human-in-the-loop** é essencial para decisões sensíveis
+- **Observabilidade** (logs, custos, latência) viabiliza produção
+- **RAG** mantém agentes atualizados sem retraining
+
+## Próximos Passos
+
+- [ ] Agente de Vendas (prospecção, propostas, CRM)
+- [ ] Integração com Slack/Teams para chat direto
+- [ ] Dashboard de métricas por agente
+- [ ] Fine-tuning de modelos por domínio
